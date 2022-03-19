@@ -6,10 +6,49 @@
 
 .App_forms form {
   display: flex;
-  width: 80vw;
-  gap: 10px;
+  /* width: 50vw; */
+  /* gap: 10px; */
 }
 
 .App_forms form label {
   display: block;
+}
+
+.App_forms div {
+  width: 200px;
+}
+
+.form-display {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.form-display_row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-display_row_header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-transform: capitalize;
+}
+
+.form-display_row_work-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.form-display_row_work-details_titles {
+  display: flex;
+  gap: 5px;
+}
+.form-display_row_work-details_dates {
+  display: flex;
+  gap: 5px;
 }
