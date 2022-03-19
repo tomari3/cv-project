@@ -135,174 +135,200 @@ class App extends Component {
           <form>
             <div className="forms_general">
               <legend>General</legend>
-              <label htmlFor="firstName">first Name</label>
-              <input
-                type="text"
-                id="firstName"
-                name="firstName"
-                value={this.state.firstName}
-                onChange={this.handleChange}
-              />
+              <div className="input-box">
+                <label htmlFor="firstName">first Name</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  value={this.state.firstName}
+                  onChange={this.handleChange}
+                />
+              </div>
 
-              <label htmlFor="lastName">last Name</label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={this.state.lastName}
-                onChange={this.handleChange}
-              />
+              <div className="input-box">
+                <label htmlFor="lastName">last Name</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={this.state.lastName}
+                  onChange={this.handleChange}
+                />
+              </div>
 
-              <label htmlFor="email">email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
+              <div className="input-box">
+                <label htmlFor="email">email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="phoneNumber">Phone number</label>
+                <input
+                  type="number"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  value={this.state.phoneNumber}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="DOB">date of birth</label>
+                <input
+                  type="date"
+                  id="DOB"
+                  name="dob"
+                  value={this.state.dob}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="address">address</label>
+                <input
+                  type="address"
+                  id="address"
+                  name="address"
+                  value={this.state.address}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="id">id</label>
+                <input
+                  type="number"
+                  id="id"
+                  name="id"
+                  value={this.state.id}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="link">link</label>
+                <input
+                  type="text"
+                  id="link"
+                  placeholder="www.link.com"
+                  name="link"
+                  value={this.state.link.value}
+                  onChange={this.handleListChange}
+                />
 
-              <label htmlFor="phoneNumber">Phone number</label>
-              <input
-                type="number"
-                id="phoneNumber"
-                name="phoneNumber"
-                value={this.state.phoneNumber}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="DOB">date of birth</label>
-              <input
-                type="date"
-                id="DOB"
-                name="dob"
-                value={this.state.dob}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="address">address</label>
-              <input
-                type="address"
-                id="address"
-                name="address"
-                value={this.state.address}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="id">id</label>
-              <input
-                type="number"
-                id="id"
-                name="id"
-                value={this.state.id}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="link">link</label>
-              <input
-                type="text"
-                id="link"
-                placeholder="any relevant link goes here"
-                name="link"
-                value={this.state.link.value}
-                onChange={this.handleListChange}
-              />
-
-              <button name="link" onClick={this.addItem}>
-                add link
-              </button>
+                <button name="link" onClick={this.addItem}>
+                  add link
+                </button>
+              </div>
             </div>
 
             <div className="forms_work">
               <legend>Work Experience</legend>
-
-              <label htmlFor="title">title</label>
-              <input
-                type="text"
-                id="title"
-                name="title"
-                value={this.state.title}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="company">company</label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={this.state.company}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="location">location</label>
-              <input
-                type="address"
-                id="location"
-                name="location"
-                value={this.state.location}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="startDate">start date</label>
-              <input
-                type="date"
-                id="startDate"
-                name="startDate"
-                value={this.state.startDate}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="endDate">end date</label>
-              <input
-                type="date"
-                id="endDate"
-                name="endDate"
-                value={this.state.endDate}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="description">description</label>
-              <textarea
-                id="description"
-                placeholder="describe an aspect of your work in a bullet point"
-                name="bullet"
-                value={this.state.bullet.value}
-                onChange={this.handleListChange}
-              ></textarea>
-
-              <button name="bullet" onClick={this.addItem}>
-                add bullet
-              </button>
-
-              <button onClick={this.addWork}>add work title</button>
+              <div className="input-box">
+                <label htmlFor="title">title</label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  value={this.state.title}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="company">company</label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={this.state.company}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="location">location</label>
+                <input
+                  type="address"
+                  id="location"
+                  name="location"
+                  value={this.state.location}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="startDate">start date</label>
+                <input
+                  pe="number"
+                  min="1900"
+                  max="2099"
+                  step="1"
+                  id="startDate"
+                  name="startDate"
+                  placeholder="2021"
+                  value={this.state.startDate}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="endDate">end date</label>
+                <input
+                  pe="number"
+                  min="1900"
+                  max="2099"
+                  step="1"
+                  id="endDate"
+                  name="endDate"
+                  placeholder="2022"
+                  value={this.state.endDate}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="description">description</label>
+                <textarea
+                  id="description"
+                  placeholder="describe an aspect of your work in a bullet point"
+                  name="bullet"
+                  value={this.state.bullet.value}
+                  onChange={this.handleListChange}
+                ></textarea>
+                <div className="box_btn">
+                  <button name="bullet" onClick={this.addItem}>
+                    add bullet
+                  </button>
+                  <button onClick={this.addWork}>add section</button>
+                </div>
+              </div>
             </div>
-
             <div className="forms_skills">
               <legend>Miscellaneous Skills</legend>
-
-              <label htmlFor="category">category</label>
-              <input
-                type="text"
-                id="category"
-                name="category"
-                value={this.state.category}
-                onChange={this.handleChange}
-              />
-
-              <label htmlFor="skills">skills</label>
-              <textarea
-                id="skills"
-                placeholder="add one at a time. Or, many, using, commas."
-                name="skill"
-                value={this.state.skill.value}
-                onChange={this.handleListChange}
-              ></textarea>
-
-              <button name="skill" onClick={this.addItem}>
-                add skill
-              </button>
-
-              <button onClick={this.addCategory}>add category</button>
+              <div className="input-box">
+                <label htmlFor="category">category</label>
+                <input
+                  type="text"
+                  id="category"
+                  name="category"
+                  value={this.state.category}
+                  onChange={this.handleChange}
+                />
+              </div>
+              <div className="input-box">
+                <label htmlFor="skills">skills</label>
+                <textarea
+                  id="skills"
+                  placeholder="add one at a time. Or, many, using, commas."
+                  name="skill"
+                  value={this.state.skill.value}
+                  onChange={this.handleListChange}
+                ></textarea>
+                <div className="box_btn">
+                  <button name="skill" onClick={this.addItem}>
+                    add skill
+                  </button>
+                  <button onClick={this.addCategory}>add section</button>
+                </div>
+              </div>
             </div>
           </form>
         </div>

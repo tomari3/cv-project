@@ -20,10 +20,18 @@ class FormDisplay extends Component {
             <p>ID: {this.props.id}</p>
           </div>
           <div>
-            <p>{this.props.email}</p>
+            <a
+              href={`https://${this.props.email}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {this.props.email}
+            </a>
             <div>
               {this.props.links.map((link) => (
-                <p key={link.id}>{link.value}</p>
+                <a key={link.id} href={`https://${link.value}`}>
+                  {link.value}
+                </a>
               ))}
               <p>{this.props.link}</p>
             </div>
@@ -47,9 +55,9 @@ class FormDisplay extends Component {
                     <span>{work.location}</span>
                   </div>
                   <div className="form-display_row_work-details_dates">
-                    <span>{work.startDate}</span>
+                    <span>({work.startDate})</span>
                     <span>-</span>
-                    <span>{work.endDate}</span>
+                    <span>({work.endDate})</span>
                   </div>
                 </div>
                 <div>
@@ -71,11 +79,14 @@ class FormDisplay extends Component {
             {this.props.categories.map((category) => (
               <div key={category.id} className="form-display_row_category">
                 <h3>{category.title}</h3>
-                <ul>
-                  {category.skills.map((skill) => (
-                    <li key={skill.id}>{skill.value}</li>
-                  ))}
-                </ul>
+
+                {category.skills.map((skill, i) =>
+                  i === category.skills.length - 1 ? (
+                    <span key={skill.id}>{skill.value}</span>
+                  ) : (
+                    <span key={skill.id}>{skill.value}, </span>
+                  )
+                )}
               </div>
             ))}
           </div>
