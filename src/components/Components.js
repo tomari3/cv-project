@@ -17,7 +17,7 @@ class FormDisplay extends Component {
           </div>
           <div>
             <p>DOB: {this.props.dob}</p>
-            <p>ID :{this.props.id}</p>
+            <p>ID: {this.props.id}</p>
           </div>
           <div>
             <p>{this.props.email}</p>
@@ -25,6 +25,7 @@ class FormDisplay extends Component {
               {this.props.links.map((link) => (
                 <p key={link.id}>{link.value}</p>
               ))}
+              <p>{this.props.link}</p>
             </div>
           </div>
           <div>

@@ -47,13 +47,14 @@ class App extends Component {
 
   addLink(event) {
     event.preventDefault();
-    console.log(this.state.links);
-    if (this.state.links.length > 4) return;
+    const item = event.target.name;
+    const list = event.target.name + "s";
+    if (this.state[list].length > 4 || !this.state[item].value) return;
     this.setState({
-      links: [...this.state.links, this.state.link],
+      [list]: [...this.state[list], this.state[item]],
     });
     this.setState({
-      link: {
+      [item]: {
         value: "",
         id: "",
       },
@@ -140,7 +141,9 @@ class App extends Component {
                 onChange={this.handleListChange}
               />
 
-              <button onClick={this.addLink}>add link</button>
+              <button name="link" onClick={this.addLink}>
+                add link
+              </button>
             </div>
 
             <div className="forms_work">
@@ -236,10 +239,11 @@ class App extends Component {
           <FormDisplay
             first={this.state.firstName || "first"}
             last={this.state.lastName || "last"}
-            dob={this.state.dob || "01/01/1999"}
+            dob={this.state.dob || "dd/mm/yyyy"}
             id={this.state.id || "123456789"}
             email={this.state.email || "firstlast@email.com"}
             links={this.state.links || "www.link.com"}
+            link={this.state.link.value || "www.link.com"}
             address={this.state.address || "123 Place blvd"}
             phoneNumber={this.state.phoneNumber || "054 1234567"}
             title={this.state.title || "title"}
