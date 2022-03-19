@@ -32,11 +32,20 @@ class App extends Component {
         value: "",
         id: "",
       },
+
+      categories: [],
+      category: "",
+      skills: [],
+      skill: {
+        value: "",
+        id: "",
+      },
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleListChange = this.handleListChange.bind(this);
     this.addItem = this.addItem.bind(this);
     this.addWork = this.addWork.bind(this);
+    this.addCategory = this.addCategory.bind(this);
   }
 
   handleChange(event) {
@@ -68,6 +77,27 @@ class App extends Component {
     });
   }
 
+  async addCategory(event) {
+    event.preventDefault();
+    if (!this.state.category) return;
+    await this.setState({
+      newCategory: {
+        title: this.state.category,
+        skills: this.state.skills,
+        id: uniqid(),
+      },
+    });
+    this.setState({
+      categories: [...this.state.categories, this.state.newCategory],
+    });
+    this.setState({
+      newCategory: {},
+      category: "",
+      skills: [],
+      id: "",
+    });
+    console.log(this.state.categories);
+  }
   async addWork(event) {
     event.preventDefault();
     if (!this.state.title) return;
@@ -264,13 +294,15 @@ class App extends Component {
                 id="skills"
                 placeholder="add one at a time. Or, many, using, commas."
                 name="skill"
-                value={this.state.skill}
-                onChange={this.handleChange}
+                value={this.state.skill.value}
+                onChange={this.handleListChange}
               ></textarea>
 
-              <button>add skill</button>
+              <button name="skill" onClick={this.addItem}>
+                add skill
+              </button>
 
-              <button>add category</button>
+              <button onClick={this.addCategory}>add category</button>
             </div>
           </form>
         </div>
@@ -319,8 +351,31 @@ class App extends Component {
                   ]
                 : this.state.works
             }
-            category={this.state.category || "Languages"}
-            skill={this.state.skill || "english"}
+            categories={
+              this.state.categories.length === 0 || this.state.category
+                ? [
+                    ...this.state.categories,
+                    {
+                      title: this.state.category || "category",
+                      skills:
+                        this.state.skills.length === 0
+                          ? [
+                              {
+                                value: this.state.skill.value
+                                  ? this.state.skill.value
+                                  : "example",
+                                id: "-1",
+                              },
+                            ]
+                          : [
+                              ...this.state.skills,
+                              { value: this.state.skill.value, id: "-1" },
+                            ],
+                      id: "-1",
+                    },
+                  ]
+                : this.state.categories
+            }
           />
         </section>
       </div>

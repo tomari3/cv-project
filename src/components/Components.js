@@ -67,11 +67,17 @@ class FormDisplay extends Component {
           <div className="form-display_row_header">
             <h2>Miscellaneous Skills</h2>
           </div>
-          <div className="form-display_row_skill-category">
-            <h3>{this.props.category}</h3>
-            <ul>
-              <li>{this.props.skill}</li>
-            </ul>
+          <div className="form-display_row_categories">
+            {this.props.categories.map((category) => (
+              <div key={category.id} className="form-display_row_category">
+                <h3>{category.title}</h3>
+                <ul>
+                  {category.skills.map((skill) => (
+                    <li key={skill.id}>{skill.value}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </>
