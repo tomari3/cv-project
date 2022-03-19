@@ -171,12 +171,15 @@ table {
 }
 
 .App_forms form {
-  width: 50%;
+  width: 60%;
   height: 80%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-color: var(--light) var(--bg);
 }
 .App_forms form legend {
   width: 100%;
@@ -213,6 +216,7 @@ table {
   border-bottom: 1px solid var(--accent);
   color: var(--dark);
   font-weight: bold;
+  overflow: hidden;
 }
 
 .input-box input:focus,
