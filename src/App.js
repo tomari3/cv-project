@@ -3,6 +3,8 @@ import "./App.css";
 import uniqid from "uniqid";
 import { Component } from "react";
 import { FormDisplay } from "./components/Components";
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 class App extends Component {
   constructor() {
     super();
