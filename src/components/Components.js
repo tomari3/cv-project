@@ -4,6 +4,9 @@ class FormDisplay extends Component {
   constructor(props) {
     super(props);
   }
+
+  renderList(props) {}
+
   render() {
     return (
       <>
@@ -18,13 +21,15 @@ class FormDisplay extends Component {
           </div>
           <div>
             <p>{this.props.email}</p>
-            <p>{this.props.link1}</p>
-            <p>{this.props.link2}</p>
-            <p>{this.props.link3}</p>
+            <div>
+              {this.props.links.map((link) => (
+                <p key={link.id}>{link.value}</p>
+              ))}
+            </div>
           </div>
           <div>
             <p>{this.props.address}</p>
-            <p>{this.props.zipCode}</p>
+            {/* <p>{this.props.zipCode}</p> */}
             <p>{this.props.phoneNumber}</p>
           </div>
         </div>
@@ -47,6 +52,17 @@ class FormDisplay extends Component {
           <div>
             <ul>
               <li>{this.props.bullet}</li>
+            </ul>
+          </div>
+        </div>
+        <div className="form-display_row">
+          <div className="form-display_row_header">
+            <h2>Miscellaneous Skills</h2>
+          </div>
+          <div className="form-display_row_skill-category">
+            <h3>{this.props.category}</h3>
+            <ul>
+              <li>{this.props.skill}</li>
             </ul>
           </div>
         </div>
