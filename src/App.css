@@ -130,7 +130,7 @@ table {
 }
 
 /* code */
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,800;1,400&display=swap");
 
 :root {
   --bg: #ede0d4;
@@ -140,12 +140,23 @@ table {
   --accent: #7f5539;
   --dark: #9c6644;
   --text: black;
+  font-family: "Work Sans", sans-serif;
 }
 
 #root {
   display: grid;
-  grid-template-rows: 0 100vh 0;
+  grid-template-rows: 20vh 100vh 0;
   grid-template-areas: "." "app" ".";
+}
+
+header {
+  background-color: var(--light);
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .App {
@@ -157,7 +168,6 @@ table {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  font-family: "Work Sans", sans-serif;
   color: var(--text);
 }
 
@@ -270,6 +280,12 @@ table {
 }
 
 .form-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App_display {
   display: grid;
   width: calc(90vh * 0.709); /* A4 paper ratio in reverse*/
   height: 90vh;

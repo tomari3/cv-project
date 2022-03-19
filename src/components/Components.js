@@ -1,15 +1,18 @@
 import { Component } from "react";
 
-class FormDisplay extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  renderList(props) {}
-
+class Header extends Component {
   render() {
     return (
-      <>
+      <header>
+        <h1>{this.props.header}</h1>
+      </header>
+    );
+  }
+}
+class FormDisplay extends Component {
+  render() {
+    return (
+      <div className="App_display">
         <div className="form-display_row">
           <div className="form-display_row_header">
             <h1>{this.props.first}</h1>
@@ -91,9 +94,9 @@ class FormDisplay extends Component {
             ))}
           </div>
         </div>
-      </>
+      </div>
     );
   }
 }
 
-export { FormDisplay };
+export { FormDisplay, Header };
