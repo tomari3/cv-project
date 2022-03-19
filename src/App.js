@@ -9,27 +9,34 @@ class App extends Component {
     this.state = {
       firstName: "",
       lastName: "",
-      dob: "",
-      id: "",
       email: "",
+      phoneNumber: "",
+      dob: "",
+      address: "",
+      id: "",
       links: [],
       link: {
         value: "",
         id: "",
       },
-      address: "",
-      zipCode: "",
-      phoneNumber: "",
+
+      works: [],
+      work: {},
       title: "",
       company: "",
       location: "",
       startDate: "",
       endDate: "",
-      bullet: "",
+      bullets: [],
+      bullet: {
+        value: "",
+        id: "",
+      },
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleListChange = this.handleListChange.bind(this);
-    this.addLink = this.addLink.bind(this);
+    this.addItem = this.addItem.bind(this);
+    this.addWork = this.addWork.bind(this);
   }
 
   handleChange(event) {
@@ -45,7 +52,7 @@ class App extends Component {
     });
   }
 
-  addLink(event) {
+  addItem(event) {
     event.preventDefault();
     const item = event.target.name;
     const list = event.target.name + "s";
@@ -59,6 +66,36 @@ class App extends Component {
         id: "",
       },
     });
+  }
+
+  async addWork(event) {
+    event.preventDefault();
+    if (!this.state.title) return;
+    await this.setState({
+      work: {
+        title: this.state.title,
+        company: this.state.company,
+        location: this.state.location,
+        startDate: this.state.startDate,
+        endDate: this.state.endDate,
+        bullets: this.state.bullets,
+        id: uniqid(),
+      },
+    });
+    this.setState({
+      works: [...this.state.works, this.state.work],
+    });
+    this.setState({
+      work: {},
+      title: "",
+      company: "",
+      location: "",
+      startDate: "",
+      endDate: "",
+      bullets: [],
+      id: "",
+    });
+    console.log(this.state.works);
   }
 
   render() {
@@ -141,7 +178,7 @@ class App extends Component {
                 onChange={this.handleListChange}
               />
 
-              <button name="link" onClick={this.addLink}>
+              <button name="link" onClick={this.addItem}>
                 add link
               </button>
             </div>
@@ -199,13 +236,15 @@ class App extends Component {
                 id="description"
                 placeholder="describe an aspect of your work in a bullet point"
                 name="bullet"
-                value={this.state.bullet}
-                onChange={this.handleChange}
+                value={this.state.bullet.value}
+                onChange={this.handleListChange}
               ></textarea>
 
-              <button>add bullet</button>
+              <button name="bullet" onClick={this.addItem}>
+                add bullet
+              </button>
 
-              <button>add work title</button>
+              <button onClick={this.addWork}>add work title</button>
             </div>
 
             <div className="forms_skills">
@@ -242,16 +281,44 @@ class App extends Component {
             dob={this.state.dob || "dd/mm/yyyy"}
             id={this.state.id || "123456789"}
             email={this.state.email || "firstlast@email.com"}
-            links={this.state.links || "www.link.com"}
-            link={this.state.link.value || "www.link.com"}
+            links={
+              this.state.link.value.length === 0 &&
+              this.state.links.length === 0
+                ? [{ value: "www.example.com", id: "-1" }]
+                : this.state.links
+            }
+            link={this.state.link.value}
             address={this.state.address || "123 Place blvd"}
             phoneNumber={this.state.phoneNumber || "054 1234567"}
-            title={this.state.title || "title"}
-            company={this.state.company || "company"}
-            location={this.state.location || "location"}
-            startDate={this.state.startDate || "start date"}
-            endDate={this.state.endDate || "end date"}
-            bullet={this.state.bullet || "bullet point"}
+            works={
+              this.state.works.length === 0 || this.state.title
+                ? [
+                    ...this.state.works,
+                    {
+                      title: this.state.title || "title",
+                      company: this.state.company || "company",
+                      location: this.state.location || "location",
+                      startDate: this.state.startDate || "start date",
+                      endDate: this.state.endDate || "end date",
+                      bullets:
+                        this.state.bullets.length === 0
+                          ? [
+                              {
+                                value: this.state.bullet.value
+                                  ? this.state.bullet.value
+                                  : "example",
+                                id: "-1",
+                              },
+                            ]
+                          : [
+                              ...this.state.bullets,
+                              { value: this.state.bullet.value, id: "-1" },
+                            ],
+                      id: "-1",
+                    },
+                  ]
+                : this.state.works
+            }
             category={this.state.category || "Languages"}
             skill={this.state.skill || "english"}
           />

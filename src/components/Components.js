@@ -30,7 +30,6 @@ class FormDisplay extends Component {
           </div>
           <div>
             <p>{this.props.address}</p>
-            {/* <p>{this.props.zipCode}</p> */}
             <p>{this.props.phoneNumber}</p>
           </div>
         </div>
@@ -38,22 +37,30 @@ class FormDisplay extends Component {
           <div className="form-display_row_header">
             <h2>work experience</h2>
           </div>
-          <div className="form-display_row_work-details">
-            <div className="form-display_row_work-details_titles">
-              <span>{this.props.title}</span>
-              <span>{this.props.company}</span>
-              <span>{this.props.location}</span>
-            </div>
-            <div className="form-display_row_work-details_dates">
-              <span>{this.props.startDate}</span>
-              <span>-</span>
-              <span>{this.props.endDate}</span>
-            </div>
-          </div>
-          <div>
-            <ul>
-              <li>{this.props.bullet}</li>
-            </ul>
+          <div className="form-display_row_works">
+            {this.props.works.map((work) => (
+              <div key={work.id} className="form-display_row_work">
+                <div className="form-display_row_work-details">
+                  <div className="form-display_row_work-details_titles">
+                    <span>{work.title}</span>
+                    <span>{work.company}</span>
+                    <span>{work.location}</span>
+                  </div>
+                  <div className="form-display_row_work-details_dates">
+                    <span>{work.startDate}</span>
+                    <span>-</span>
+                    <span>{work.endDate}</span>
+                  </div>
+                </div>
+                <div>
+                  <ul>
+                    {work.bullets.map((bullet) => (
+                      <li key={bullet.id}>{bullet.value}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
         <div className="form-display_row">

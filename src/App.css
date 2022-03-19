@@ -20,7 +20,7 @@
 
 .form-display {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr minmax(1fr, 3fr) 1fr 1fr;
 }
 
 .form-display_row {
@@ -37,6 +37,11 @@
   align-items: center;
   gap: 10px;
   text-transform: capitalize;
+}
+.form-display_row_works {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-display_row_work-details {
