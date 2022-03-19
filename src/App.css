@@ -1,0 +1,15 @@
+.App_forms {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.App_forms form {
+  display: flex;
+  width: 80vw;
+  gap: 10px;
+}
+
+.App_forms form label {
+  display: block;
+}
